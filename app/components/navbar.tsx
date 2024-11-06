@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const router = useRouter();
   const [searchTerm,setSearchTerm] =useState("");
-  const handleSearch =(e)=>{
+  const handleSearch =(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
    console.log("Search term:", searchTerm);
    setSearchTerm("");
@@ -29,6 +29,7 @@ const Navbar = () => {
         value={searchTerm}
         onChange={(e) =>setSearchTerm(e.target.value)}
         className="search-input"
+        aria-label="Search"
         />
         <button type="submit" className="search-button">Search</button>
       </form>

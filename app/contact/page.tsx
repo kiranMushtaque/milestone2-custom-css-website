@@ -1,5 +1,6 @@
-"use client";
+"use client"
 import React, { useState } from "react";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,21 +8,21 @@ const Contact = () => {
     email: "",
     message: "",
   });
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target; 
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("From submitted:", formData);
+    console.log("Form submitted:", formData);
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
     <div className="contact-container">
       <h1>Contact Us</h1>
-      <p>We'd love to hear from you!</p>
+      <p>We&apos;dlove to hear from you!</p>
       <form onSubmit={handleSubmit} className="contact-from">
         <div>
           <label htmlFor="name">Name:</label>
@@ -39,7 +40,7 @@ const Contact = () => {
           <input
             type="email"
             id="email"
-            name="emial"
+            name="email"
             value={formData.email}
             onChange={handleChange}
             required
@@ -47,8 +48,8 @@ const Contact = () => {
         </div>
         <div>
           <label htmlFor="message">Message:</label>
-          <input
-            type="message"
+          <textarea
+          
             id="message"
             name="message"
             value={formData.message}
@@ -63,3 +64,6 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
+
